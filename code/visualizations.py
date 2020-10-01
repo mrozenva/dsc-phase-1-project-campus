@@ -9,7 +9,7 @@ def plot_top_10pct_rt_directors(top_10pct_directors):
     directors_plot = sns.barplot(top_10pct_directors.index, top_10pct_directors.values)
     directors_plot.set_xticklabels(directors_plot.get_xticklabels(), rotation = 80);
     plt.xlabel('Movie Directors')
-    plt.ylabel('Average Gross Return (Box Office)')
+    plt.ylabel('Average Gross Return ($10M) (Box Office)')
     return plt.show()
 
 
