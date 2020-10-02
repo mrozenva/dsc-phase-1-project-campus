@@ -70,10 +70,10 @@ def rating_vs_average_profit_barplot(dataframe):
     return plt.show()
 
 
-def genre_vs_profit_barplot(dataframe, genre, profit):
+def genre_vs_profit_barplot(dataframe):
     plt.title('Movie Genre vs Profit')
-    chart = sns.barplot(genre, 
-                        profit, 
+    chart = sns.barplot('genre', 
+                        'profit', 
                         data = dataframe)
     chart.set_xticklabels(chart.get_xticklabels(), rotation = 60)
     chart.set(xlabel='Movie Genre', ylabel='Profit ($10M)');
