@@ -31,8 +31,8 @@ We plot the 20 most profitable studios below
 
 Now let's examine the relationship between MPAA rating and profit
 
-![](./images/rating_vs_numMovies.png)
-![](./images/rating_vs_profit.png)
+![](./images/rating_vs_numMovies.png) ![](./images/rating_vs_profit.png)
+
 
 As we see in the first plot, R rated movies are the most commonly produced, while G rated movies are much less common; however, looking at the second plot, we see G rated movies are the most profitable. This indicates an undersaturation in the market for G rated movies. Microsoft would be best positioned to do well by focusing on producing G rated movies. Taking this line of thinking further, we examined whether shorter or longer movies were more profitable for each rating, focusing on the G rating.
 
