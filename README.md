@@ -1,93 +1,73 @@
-# Phase 1 Project (Campus)
+# Microsoft's Potential Entry Into the Video Entertainment Market
 
-## Introduction
+#### Authors: Jake Oddi, Mike Rozenvasser
 
-In this lesson, we review the guidelines for the Phase 1 Project.
 
-## Objectives
 
-You will be able to:
+## Business Problem
 
-* Start your Phase 1 Project
-* Check that your project meets the requirements
-* Submit your project materials in Canvas
-* Prepare for your project review
+Microsoft believes there is potential upside in a move into the proprietary entertainment space, similar to those of Netflix and Apple, which have both started producing their own films. Using publicly available movie and industry data, we examine what courses of action should be taken to make this strategic move most successful.
 
-## Project Overview
 
-You've made it all the way through the first phase of this course - take a minute to celebrate your awesomeness!
+##### rt_movie_info is a dataset from Rotten Tomatoes, while kaggle_movies is the MovieLens dataset that has been cleaned and uploaded to kaggle
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-1-project-campus/master/awesome.gif)
+### Gathering and Plotting the Top 10% Average Grossing Directors:
+<p> My goal is to select directors whose movies yield returns in the top 10% at the box office on average. I group by directors and their mean box office, and I use sum() to get the total number of directors with 90th percentile returns. This number is 27. I go on again to group the dataset by director and mean box office, though this time sorting values in ascending order, taking the top 27, and assigning the series to a variable top_10pct_box_office. Finally, I employ a barplot to display the mean box office by director. </p>
 
-All that remains in Phase 1 is to put our newfound data science skills to use with a large project! This project will take an entire week to complete.
 
-### Business Problem
+![](./images/top_10_directors.png)
 
-Microsoft sees all the big companies creating original video content, and they want to get in on the fun. They have decided to create a new movie studio, but the problem is they don’t know anything about creating movies. They have hired you to help them better understand the movie industry.
-Your team is charged with exploring what type of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of Microsoft's new movie studio can use to help decide what type of films to create.
 
-### The Data
+The kaggle dataset proves much more useful, as most if not all irregularities have already been removed, and minimal cleaning is required.
 
-In the folder `zippedData` are movie datasets from:
+### Feature Engineering
 
-* Box Office Mojo
-* IMDB
-* Rotten Tomatoes
-* TheMovieDB.org
+We want to look at which movies studios are most profitable on average, which we do by using a groupby function.
+We plot the 20 most profitable studios below
 
-It is up to you to decide what data from this to use and how to use it. If you want to make this more challenging, you can scrape websites or make API calls to get additional data. If you are feeling overwhelmed or behind (e.g. struggled with the Phase 1 Code Challenge), we recommend you use only the following data files:
+![](./images/profitable_movie_studios.png)
 
-* imdb.title.basics
-* imdb.title.ratings
-* bom.movie_gross
 
-## Deliverables
 
-There are three deliverables for this project:
+Now let's examine the relationship between MPAA rating and profit
 
-1. A **GitHub repository**
-2. A **Jupyter Notebook**
-3. A **non-technical presentation**
+![](./images/rating_vs_numMovies.png)
+![](./images/rating_vs_profit.png)
 
-Keep in mind that the audience for these deliverables is not only your teacher, but also potential employers. Employers will look at your project deliverables to evaluate multiple skills, including coding, modeling, communication, and domain knowledge. You will want to polish these as much as you can, both during the course and afterwards.
+As we see in the first plot, R rated movies are the most commonly produced, while G rated movies are much less common; however, looking at the second plot, we see G rated movies are the most profitable. This indicates an undersaturation in the market for G rated movies. Microsoft would be best positioned to do well by focusing on producing G rated movies. Taking this line of thinking further, we examined whether shorter or longer movies were more profitable for each rating, focusing on the G rating.
 
-We provide a few resources to help you understand what makes for good deliverables.
-- The rubric associated with this assignment
-- [A template for you to use, with an example for reference][].
+![](./images/sixplot_subplot.png)
 
-### GitHub Repository
+Using built-in regression plots, for all ratings but NOT RATED, there is a very weak positive association between runtime and profit. NOT RATED displays a very weak negative association between runtime and profit
 
-Your GitHub repository is the public-facing version of your project that your instructors and potential employers will see - make it as accessible as you can. At a minimum, it should contain all your project files and a README.md file that summarizes your project and helps visitors navigate the repository.
+Next, we examined which genre of movie tends to perform the best, measured by how profitable it is.
 
-### Jupyter Notebook
+![](./images/genre_vs_profit_plot.png)
 
-Your Jupyter Notebook is the primary source of information about your analysis. At a minimum, it should contain or import all of the code used in your project and walk the reader through your project from start to finish. You may choose to use multiple Jupyter Notebooks in your project, but you should have one that provides a full project overview as a point of entry for visitors.
 
-### Non-Technical Presentation
+## Conclusion
 
-Your non-technical presentation is your opportunity to communicate clearly and concisely about your project and it's real-world relevance. The target audience should be people with limited technical knowledge who may be interested in leveraging your project. For Phase 1, these would be Microsoft executives interested in making decisions about movie development. We recommend using Google Slides, PowerPoint or Keynote to create your presentation slides.
+* Microsoft would be benefit from recruiting a director in the top 10% of average profit of movies he or she was involved in 
+* They would benefit from employing one of the top 20 studios measured by profitability
 
-## Getting Started
+<h4> Most importantly, they are well positioned to take advantage of the imbalance between supply and demand in the market for G rated movies. They can maximize their returns by producing G rated movies that are around 100 minutes long and are of the animated and adventure genres </h4>
 
-Please start by reviewing this document. If you have any questions, please ask your instructor ASAP.
 
-We recommend you check out [the Phase 1 Project Templates and Examples repo](https://github.com/learn-co-curriculum/dsc-project-template) and use the MVP template for your project.
 
-Alternatively, you can fork [the Phase 1 Project Repository][], clone it locally, and work in the `student.ipynb` file. Make sure to also add and commit a PDF of your presentation to your repository with a file name of `presentation.pdf`.
+## Next Steps
 
-## Project Submission and Review
+* Given more time, we would have liked to examine the relationship between plot keywords from each movie and their returns.
+    * Using more sophisticated models, this approach would be even more effective.
+* Given more time, we also would have liked to make API calls and scrape social media sites to measure how popular a movie is on social media compared to its performance at the box office.
 
-Review [the Phase Project Submission and Review guidance][] to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
 
-## Summary
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
 
-## Tips
 
-Ask for help from your peers or instructors early and often.
 
-[A template for you to use, with an example for reference]: https://github.com/learn-co-curriculum/dsc-project-template
-[Google Chrome Save to PDF instructions]: https://www.wikihow.com/Save-a-Web-Page-as-a-PDF-in-Google-Chrome
-[the Phase 1 Project Repository]: https://github.com/learn-co-curriculum/dsc-phase-1-project-campus
-[the Phase Project Submission and Review guidance]: https://github.com/learn-co-curriculum/dsc-project-submissions-campus
+
+
+
+
+
+
