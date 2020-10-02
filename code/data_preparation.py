@@ -1,3 +1,8 @@
+import pandas as pd
+import numpy as np
+
+
+
 def clean_rt(rt_movie_info):
     """
     

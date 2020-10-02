@@ -1,3 +1,12 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+
+
+
+
 def plot_top_10pct_rt_directors(top_10pct_directors):
     """
     
